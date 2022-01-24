@@ -1,5 +1,5 @@
 # make_rankfile
-So your hybid MPI/OpenMP application isn't assigning thread affinity correctly, and you've tried every automated option. Time for the nuclear option: a rankfile that explicitly tells each MPI rank what cores its OpenMP threads get.
+So your hybrid MPI/OpenMP application isn't assigning thread affinity correctly, and you've tried every automated option. Time for the nuclear option: a rankfile that explicitly tells each MPI rank what cores its OpenMP threads get.
 
 # Instructions
 To generate your rankfile, run the script in the command line with the following format:
@@ -17,3 +17,5 @@ This will generate the file `rankfile_4_4.txt`. Then, when running the job, Incl
 export OMP_NUM_THREADS=4;
 mpirun -np 128 -rankfile rankfile_4_4.txt ./MY_EXECUTABLE
 ```
+
+Note that this script assumes the normal, usually most cache-efficient configuration of assigning MPI ranks to continguous blocks of cores.
