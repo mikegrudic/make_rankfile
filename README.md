@@ -15,7 +15,7 @@ python make_rankfile.py 128 4 4
 This will generate the file `rankfile_4_4.txt`. Then, when running the job, Include the `-rankfile` argument to `mpirun`:
 ```
 export OMP_NUM_THREADS=4;
-mpirun -np 128 -rankfile rankfile_4_4.txt ./MY_EXECUTABLE
+mpirun -np 32 -rankfile rankfile_4_4.txt ./MY_EXECUTABLE
 ```
 
 Note that this script assumes the normal, usually most cache-efficient configuration of assigning MPI ranks to continguous blocks of cores.
